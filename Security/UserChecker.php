@@ -22,10 +22,7 @@ use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
  */
 class UserChecker implements UserCheckerInterface
 {
-    /**
-     * @return void
-     */
-    public function checkPreAuth(BaseUserInterface $user)
+    public function checkPreAuth(BaseUserInterface $user): void
     {
         if (!$user->isEnabled()) {
             $ex = new DisabledException('User account is disabled.');
@@ -34,10 +31,7 @@ class UserChecker implements UserCheckerInterface
         }
     }
 
-    /**
-     * @return void
-     */
-    public function checkPostAuth(BaseUserInterface $user)
+    public function checkPostAuth(BaseUserInterface $user): void
     {
     }
 }
